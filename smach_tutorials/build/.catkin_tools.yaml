@@ -1,0 +1,6 @@
+devel_space: /home/espen/catkin_ws/src/smach_tutorials/devel
+install: false
+install_space: /home/espen/catkin_ws/src/smach_tutorials/install
+profile: default
+source_space: /home/espen/catkin_ws/src/smach_tutorials/src
+workspace: /home/espen/catkin_ws/src/smach_tutorials

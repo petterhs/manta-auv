@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/espen/catkin_ws/src/smach_tutorials/install/setup.sh

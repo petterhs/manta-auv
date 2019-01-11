@@ -1,0 +1,8 @@
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/./setup.sh
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/./env.sh
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/./setup.zsh
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/./_setup_util.py
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/./setup.bash
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/lib/pkgconfig/catkin_tools_prebuild.pc
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Symlinking /home/espen/catkin_ws/src/smach_tutorials/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake

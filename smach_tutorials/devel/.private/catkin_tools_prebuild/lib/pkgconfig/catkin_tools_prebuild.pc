@@ -1,0 +1,8 @@
+prefix=/home/espen/catkin_ws/src/smach_tutorials/devel/.private/catkin_tools_prebuild
+
+Name: catkin_tools_prebuild
+Description: Description of catkin_tools_prebuild
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/espen/catkin_ws/src/smach_tutorials/devel/.private/catkin_tools_prebuild/lib 
+Requires: 
