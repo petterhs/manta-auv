@@ -8,6 +8,7 @@
 #include "vortex_msgs/ThrusterForces.h"
 #include "vortex/eigen_typedefs.h"
 #include "vortex/eigen_helper.h"
+#include "uuv_gazebo_ros_plugins_msgs/FloatStamped.h"
 
 Allocator::Allocator(ros::NodeHandle nh)
   :
@@ -18,6 +19,15 @@ Allocator::Allocator(ros::NodeHandle nh)
   m_sub = m_nh.subscribe("manta/thruster_manager/input", 1, &Allocator::callback, this);
   m_pub = m_nh.advertise<vortex_msgs::ThrusterForces>("thruster_forces", 1);
   //m_pub = m_nh.advertise<vortex_msgs::ThrusterForces>("manta/thruster_manager/input", 1);
+  m_pub0 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/0/input", 0);
+  m_pub1 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/1/input", 1);
+  m_pub2 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/2/input", 2);
+  m_pub3 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/3/input", 3);
+  m_pub4 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/4/input", 4);
+  m_pub5 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/5/input", 5);
+  m_pub6 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/6/input", 6);
+  m_pub7 = m_nh.advertise<uuv_gazebo_ros_plugins_msgs::FloatStamped>("/manta/thrusters/7/input", 7);
+
 
   if (!m_nh.getParam("/propulsion/dofs/num", m_num_degrees_of_freedom))
     ROS_FATAL("Failed to read parameter number of dofs.");
@@ -81,11 +91,55 @@ void Allocator::callback(const geometry_msgs::Wrench &msg_in) const
   vortex_msgs::ThrusterForces msg_out;
   arrayEigenToMsg(thruster_forces, &msg_out);
 
+  //vortex_msgs:: msg_out_single_thruster;
+
   for (int i = 0; i < m_num_thrusters; i++)
     msg_out.thrust[i] *= m_direction[i];
+    msg_out.header.stamp = ros::Time::now();
+    m_pub.publish(msg_out);
 
-  msg_out.header.stamp = ros::Time::now();
-  m_pub.publish(msg_out);
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_0;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_1;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_2;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_3;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_4;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_5;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_6;
+uuv_gazebo_ros_plugins_msgs::FloatStamped msg_out_7;
+
+
+msg_out_0.data = msg_out.thrust[0];
+msg_out_1.data = msg_out.thrust[1];
+msg_out_2.data = msg_out.thrust[2];
+msg_out_3.data = msg_out.thrust[3];
+msg_out_4.data = msg_out.thrust[4];
+msg_out_5.data = msg_out.thrust[5];
+msg_out_6.data = msg_out.thrust[6];
+msg_out_7.data = msg_out.thrust[7];
+msg_out_0.header.stamp = ros::Time::now();
+msg_out_1.header.stamp = ros::Time::now();
+msg_out_2.header.stamp = ros::Time::now();
+msg_out_3.header.stamp = ros::Time::now();
+msg_out_4.header.stamp = ros::Time::now();
+msg_out_5.header.stamp = ros::Time::now();
+msg_out_6.header.stamp = ros::Time::now();
+msg_out_7.header.stamp = ros::Time::now();
+msg_out_0.header.frame_id = "manta/thruster_0";
+msg_out_1.header.frame_id = "manta/thruster_1";
+msg_out_2.header.frame_id = "manta/thruster_2";
+msg_out_3.header.frame_id = "manta/thruster_3";
+msg_out_4.header.frame_id = "manta/thruster_4";
+msg_out_5.header.frame_id = "manta/thruster_5";
+msg_out_6.header.frame_id = "manta/thruster_6";
+msg_out_7.header.frame_id = "manta/thruster_7";
+m_pub0.publish(msg_out_0);
+m_pub1.publish(msg_out_1);
+m_pub2.publish(msg_out_2);
+m_pub3.publish(msg_out_3);
+m_pub4.publish(msg_out_4);
+m_pub5.publish(msg_out_5);
+m_pub6.publish(msg_out_6);
+m_pub7.publish(msg_out_7);
 }
 
 Eigen::VectorXd Allocator::rovForcesMsgToEigen(const geometry_msgs::Wrench &msg) const

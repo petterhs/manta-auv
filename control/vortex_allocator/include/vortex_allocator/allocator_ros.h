@@ -20,6 +20,17 @@ private:
   ros::Subscriber m_sub;
   ros::Publisher  m_pub;
 
+  ros::Publisher  m_pub0;
+  ros::Publisher  m_pub1;
+  ros::Publisher  m_pub2;
+  ros::Publisher  m_pub3;
+  ros::Publisher  m_pub4;
+  ros::Publisher  m_pub5;
+  ros::Publisher  m_pub6;
+  ros::Publisher  m_pub7;
+
+
+
   int m_num_degrees_of_freedom;
   int m_num_thrusters;
   std::vector<int> m_direction;

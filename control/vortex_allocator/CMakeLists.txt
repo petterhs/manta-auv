@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   vortex
   vortex_msgs
   roslint
+  uuv_gazebo_ros_plugins_msgs
 )
 
 find_package(Eigen3 REQUIRED)
@@ -26,6 +27,7 @@ catkin_package(
   roscpp
   vortex
   vortex_msgs
+  uuv_gazebo_ros_plugins_msgs
 )
 
 include_directories(
@@ -45,6 +47,7 @@ set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX ""
 add_dependencies(${PROJECT_NAME}_node
   ${${PROJECT_NAME}_EXPORTED_TARGETS}
   ${catkin_EXPORTED_TARGETS}
+    uuv_gazebo_ros_plugins_msgs
 )
 
 target_link_libraries(${PROJECT_NAME}_node

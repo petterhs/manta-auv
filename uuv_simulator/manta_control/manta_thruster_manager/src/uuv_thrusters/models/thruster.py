@@ -105,5 +105,5 @@ class Thruster(object):
         self._update(thrust)
         output = FloatStamped()
         output.header.stamp = rospy.Time.now()
-        output.data = self._command
-        self._command_pub.publish(output)
+        #output.data = self._command
+        #self._command_pub.publish(output)
