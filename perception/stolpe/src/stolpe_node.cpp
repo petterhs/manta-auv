@@ -119,7 +119,7 @@ class ImageConverter
       bbox = heights.end()[-1];
       detected_2.pos_x = (bbox.tl().x + bbox.br().x) / 2;
       detected_2.pos_y = (bbox.tl().y + bbox.br().y) / 2;
-      rectangle(cv_ptr->image, bbox.tl(), bbox.bbr(), Scalar(0,255,0),5)
+      rectangle(cv_ptr->image, bbox.tl(), bbox.br(), Scalar(0,255,0),5);
     }
 
     // If two different poles are detected, assumes it is a gate and returns the middle position between them
