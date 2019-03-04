@@ -233,7 +233,7 @@ void ThrusterPlugin::Update(const common::UpdateInfo &_info)
   this->thrustForceStamp = _info.simTime;
   ignition::math::Vector3d force(this->thrustForce, 0, 0);
 
-  this->thrusterLink->AddRelativeForce(force);
+  this->thrusterLink->AddRelativeForce(force*100);
 
   if (this->joint)
   {
