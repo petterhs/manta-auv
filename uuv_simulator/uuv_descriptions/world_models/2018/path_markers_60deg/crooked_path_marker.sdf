@@ -1,0 +1,69 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='crooked_path'>
+
+    <pose> 0 0 0 0 0 0 </pose>
+    <static>1</static>
+    <self_collide>0</self_collide>
+
+    <link name='link_0'>
+      <pose>-0.127533 -0.50937 0 0 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.266559 1.0 0.026174</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Orange</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.266559 0.688207 0.026174</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='link_0_clone'>
+      <pose> -0.5 -0.1 0.0 0 0 1.5</pose>
+
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.266559 1.0 0.026174</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Orange</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.266559 0.438116 0.026174</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+
+
+
+  </model>
+
+</sdf>
